@@ -107,6 +107,23 @@
     .detail-label { color: #788078; font-size: 11px; font-weight: 700; text-transform: uppercase; }
     .detail-value { margin: 0; color: #46514a; font-size: 14px; line-height: 1.6; }
 
+    .collab { padding: 96px 0 110px; background: linear-gradient(180deg, #eef5ea 0%, #f8f6f0 100%); }
+    .collab-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 36px; align-items: start; }
+    .collab-copy h2 { max-width: 540px; font-size: clamp(36px, 5vw, 60px); line-height: 1; }
+    .collab-copy p { color: #4b584f; font-size: 16px; line-height: 1.8; }
+    .collab-form { display: grid; gap: 16px; padding: 26px; background: rgba(16,26,24,.98); color: var(--white); border: 1px solid rgba(255,255,255,.08); }
+    .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .field { display: grid; gap: 8px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.72); }
+    .field input, .field textarea, .field select {
+      width: 100%; min-height: 46px; padding: 12px 14px; border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.04); color: var(--white); font: inherit;
+    }
+    .field textarea { min-height: 110px; resize: vertical; }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,.45); }
+    .collab-actions { display: flex; align-items: center; justify-content: flex-start; margin-top: 4px; }
+    .collab-actions .button { background: var(--lime); color: var(--ink); border: none; cursor: pointer; }
+
     .social { position: relative; overflow: hidden; padding: 94px 0 100px; background: var(--night); color: var(--white); }
     .social::after { position: absolute; top: -105px; right: 4%; width: 280px; aspect-ratio: 1; border: 1px solid rgba(215,244,91,.25); border-radius: 50%; content: ""; box-shadow: 0 0 0 36px rgba(215,244,91,.04), 0 0 0 72px rgba(215,244,91,.025); }
     .social-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 32px; }
@@ -166,8 +183,8 @@
   <header class="topbar">
     <nav class="nav wrap" aria-label="Navegación principal">
       <a class="brand" href="#inicio" aria-label="Kuarahay, inicio">
-        <span class="brand-mark" aria-hidden="true">K</span>
-        <span class="brand-name">KUARAHY / CANSAT</span>
+        <img class="brand-mark" src="LogoKuarahy.jpeg" alt="Logo Kuarahy Team" />
+        <span class="brand-name">KUARAHY TEAM / CANSAT</span>
       </a>
       <div class="nav-links">
         <a href="#proyecto">El proyecto</a>
@@ -261,10 +278,66 @@
       </div>
     </section>
 
+    <section class="collab" id="colaborar" aria-labelledby="collab-title">
+      <div class="collab-grid wrap">
+        <div class="collab-copy">
+          <p class="section-label">04 / Colaborá</p>
+          <h2 id="collab-title">Sumate a la misión con tu alias y tu aporte.</h2>
+          <p>Si querés colaborar con Kuarahy Team, podés dejar tus datos y contarnos en qué te gustaría participar: electrónica, diseño, programación, difusión, logística o investigación.</p>
+        </div>
+
+        <form class="collab-form" action="#" method="post">
+          <div class="form-grid">
+            <div class="field">
+              <label for="alias">Alias</label>
+              <input id="alias" name="alias" type="text" placeholder="Ej: astro_kuara" />
+            </div>
+            <div class="field">
+              <label for="nombre">Nombre completo</label>
+              <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" />
+            </div>
+            <div class="field">
+              <label for="email">Correo</label>
+              <input id="email" name="email" type="email" placeholder="nombre@email.com" />
+            </div>
+            <div class="field">
+              <label for="contacto">Contacto</label>
+              <input id="contacto" name="contacto" type="text" placeholder="Instagram, WhatsApp o Telegram" />
+            </div>
+            <div class="field full">
+              <label for="area">Área de colaboración</label>
+              <select id="area" name="area">
+                <option value="">Seleccioná un área</option>
+                <option>Electrónica</option>
+                <option>Programación</option>
+                <option>Diseño</option>
+                <option>Documentación</option>
+                <option>Difusión</option>
+                <option>Investigación</option>
+                <option>Logística</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="aporte">¿Qué podés aportar?</label>
+              <textarea id="aporte" name="aporte" placeholder="Contanos qué querés ayudar a hacer, qué experiencia tenés o en qué podrías colaborar."></textarea>
+            </div>
+            <div class="field full">
+              <label for="disponibilidad">Disponibilidad y links</label>
+              <input id="disponibilidad" name="disponibilidad" type="text" placeholder="Ej: 3 horas por semana · GitHub / CV / portfolio" />
+            </div>
+          </div>
+          <div class="collab-actions">
+            <button class="button" type="submit">Enviar interés</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
     <section class="social" id="redes" aria-labelledby="social-title">
       <div class="social-inner wrap">
         <div>
-          <p class="section-label">04 / Seguinos</p>
+          <p class="section-label">05 / Seguinos</p>
           <h2 id="social-title">El viaje también se cuenta.</h2>
           <p class="social-copy">Encontrá avances, pruebas y novedades del equipo.</p>
         </div>
